@@ -4,9 +4,9 @@
 #define DHTPIN D1
 #define DHTTYPE DHT11
 
-char auth[] = "BBFF-8QbzdHQDSKyCumdj8gFzoHBScXRf3h";
-char ssid[] = "MBAHMUKIPER";
-char pass[] = "ahhayas20";
+char auth[] = "Your Auth Token";
+char ssid[] = "Your Wifi";
+char pass[] = "Your Password";
 
 DHT dht(DHTPIN,DHTTYPE);
 Ubidots client(auth);
@@ -25,8 +25,8 @@ void loop() {
     float temp = dht.readTemperature();
 
     last = millis();
-    client.add("kelembapan",hum);
-    client.add("Temperatur",temp);
+    client.add("Humidity",hum);
+    client.add("Temperature",temp);
     client.sendAll(true);
   }
 
